@@ -14,13 +14,24 @@
 # limitations under the License.
 
 """Config Parameter Modeling and Parsing"""
+from typing import Any
 
 from ghga_service_commons.api import ApiConfigBase
 from hexkit.config import config_from_yaml
+from pydantic import BaseSettings, Field
+
+
+class WellKnownsConfig(BaseSettings):
+    """Contains the configured values for the service"""
+
+    well_knowns: dict[str, Any] = Field(
+        ...,
+        description="A dictionary containing the configured 'well-known values'.",
+    )
 
 
 @config_from_yaml(prefix="wkvs")
-class Config(ApiConfigBase):
+class Config(ApiConfigBase, WellKnownsConfig):
     """Config parameters and their defaults."""
 
     service_name: str = "wkvs"
