@@ -1,10 +1,10 @@
 
-[![tests](https://github.com/ghga-de/microservice-repository-template/actions/workflows/unit_and_int_tests.yaml/badge.svg)](https://github.com/ghga-de/microservice-repository-template/actions/workflows/unit_and_int_tests.yaml)
-[![Coverage Status](https://coveralls.io/repos/github/ghga-de/microservice-repository-template/badge.svg?branch=main)](https://coveralls.io/github/ghga-de/microservice-repository-template?branch=main)
+[![tests](https://github.com/ghga-de/well-known-value-service/actions/workflows/unit_and_int_tests.yaml/badge.svg)](https://github.com/ghga-de/well-known-value-service/actions/workflows/unit_and_int_tests.yaml)
+[![Coverage Status](https://coveralls.io/repos/github/ghga-de/well-known-value-service/badge.svg?branch=main)](https://coveralls.io/github/ghga-de/well-known-value-service?branch=main)
 
-# Microservice Repository Template
+# Well Known Value Service
 
-My-Microservice - a short description
+Well-Known-Value-Service - Provides access to common values via API
 
 ## Description
 
@@ -38,15 +38,15 @@ by providing an overview of the feature of the package.
 ## Installation
 We recommend using the provided Docker container.
 
-A pre-build version is available at [docker hub](https://hub.docker.com/repository/docker/ghga/microservice-repository-template):
+A pre-build version is available at [docker hub](https://hub.docker.com/repository/docker/ghga/well-known-value-service):
 ```bash
-docker pull ghga/microservice-repository-template:0.1.0
+docker pull ghga/well-known-value-service:0.1.0
 ```
 
 Or you can build the container yourself from the [`./Dockerfile`](./Dockerfile):
 ```bash
 # Execute in the repo's root dir:
-docker build -t ghga/microservice-repository-template:0.1.0 .
+docker build -t ghga/well-known-value-service:0.1.0 .
 ```
 
 For production-ready deployment, we recommend using Kubernetes, however,
@@ -54,7 +54,7 @@ for simple use cases, you could execute the service using docker
 on a single server:
 ```bash
 # The entrypoint is preconfigured:
-docker run -p 8080:8080 ghga/microservice-repository-template:0.1.0 --help
+docker run -p 8080:8080 ghga/well-known-value-service:0.1.0 --help
 ```
 
 If you prefer not to use containers, you may install the service from source:
@@ -63,7 +63,7 @@ If you prefer not to use containers, you may install the service from source:
 pip install .
 
 # To run the service:
-my_microservice --help
+wkvs --help
 ```
 
 ## Configuration
@@ -109,9 +109,9 @@ The service requires the following configuration parameters:
 
 A template YAML for configurating the service can be found at
 [`./example-config.yaml`](./example-config.yaml).
-Please adapt it, rename it to `.my_microservice.yaml`, and place it into one of the following locations:
-- in the current working directory were you are execute the service (on unix: `./.my_microservice.yaml`)
-- in your home directory (on unix: `~/.my_microservice.yaml`)
+Please adapt it, rename it to `.wkvs.yaml`, and place it into one of the following locations:
+- in the current working directory were you are execute the service (on unix: `./.wkvs.yaml`)
+- in your home directory (on unix: `~/.wkvs.yaml`)
 
 The config yaml will be automatically parsed by the service.
 
@@ -120,8 +120,8 @@ The config yaml will be automatically parsed by the service.
 All parameters mentioned in the [`./example-config.yaml`](./example-config.yaml)
 could also be set using environment variables or file secrets.
 
-For naming the environment variables, just prefix the parameter name with `my_microservice_`,
-e.g. for the `host` set an environment variable named `my_microservice_host`
+For naming the environment variables, just prefix the parameter name with `wkvs_`,
+e.g. for the `host` set an environment variable named `wkvs_host`
 (you may use both upper or lower cases, however, it is standard to define all env
 variables in upper cases).
 
