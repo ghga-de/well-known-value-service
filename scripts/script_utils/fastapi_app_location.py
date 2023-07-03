@@ -20,4 +20,7 @@
 # pylint: skip-file
 
 # Please adapt to package structure:
-from wkvs.api.main import app
+from wkvs.config import get_config
+from wkvs.main import get_rest_api
+
+app = get_rest_api(config=get_config())
