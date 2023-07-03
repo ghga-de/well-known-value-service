@@ -20,15 +20,26 @@ Additional endpoints might be structured in dedicated modules
 """
 
 from fastapi import FastAPI
-from ghga_service_commons.api import configure_app
+from ghga_service_commons.api import configure_app, run_server
 
-from wkvs.config import Config
-
-app = FastAPI()
-configure_app(app, config=Config())
+from wkvs.adapters.inbound.fastapi_.routes import router
+from wkvs.config import Config, get_config
 
 
-@app.get("/", summary="Greet the world")
-async def index():
-    """Greet the World"""
-    return "Hello World."
+def get_rest_api(*, config: Config) -> FastAPI:
+    """
+    Creates a FastAPI app.
+    """
+
+    api = FastAPI()
+    api.include_router(router=router)
+    configure_app(api, config=config)
+    return api
+
+
+async def run_rest():
+    """Run the server"""
+    config = get_config()
+
+    api = get_rest_api(config=config)
+    await run_server(app=api, config=config)

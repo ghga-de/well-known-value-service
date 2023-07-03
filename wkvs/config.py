@@ -35,3 +35,8 @@ class Config(ApiConfigBase, WellKnownsConfig):
     """Config parameters and their defaults."""
 
     service_name: str = "wkvs"
+
+
+def get_config() -> Config:
+    """Return the config"""
+    return Config()
