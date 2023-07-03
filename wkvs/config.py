@@ -24,7 +24,7 @@ from pydantic import BaseSettings, Field
 class WellKnownsConfig(BaseSettings):
     """Contains the configured values for the service"""
 
-    well_knowns: dict[str, Any] = Field(
+    well_known_values: dict[str, Any] = Field(
         ...,
         description="A dictionary containing the configured 'well-known values'.",
     )

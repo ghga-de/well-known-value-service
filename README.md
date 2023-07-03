@@ -70,6 +70,8 @@ wkvs --help
 ### Parameters
 
 The service requires the following configuration parameters:
+- **`well_known_values`** *(object)*: A dictionary containing the configured 'well-known values'.
+
 - **`host`** *(string)*: IP of the host. Default: `127.0.0.1`.
 
 - **`port`** *(integer)*: Port to expose the server on the specified host. Default: `8080`.
@@ -100,9 +102,7 @@ The service requires the following configuration parameters:
 
   - **Items** *(string)*
 
-- **`service_name`** *(string)*: Default: `my_microservice`.
-
-- **`language`** *(string)*: Must be one of: `['Greek', 'Croatian', 'French', 'German']`. Default: `Croatian`.
+- **`service_name`** *(string)*: Default: `wkvs`.
 
 
 ### Usage:

@@ -6,9 +6,14 @@ cors_allowed_methods: null
 cors_allowed_origins: null
 docs_url: /docs
 host: 127.0.0.1
-language: Greek
 log_level: info
 openapi_url: /openapi.json
 port: 8080
-service_name: my_microservice
+service_name: wkvs
+well_known_values:
+  a_string: Test String
+  an_email_address: test.email+ext@example.com
+  ghga_crypt4gh_public_key:
+    key: 30F32923F923IJF2RO23OIRJ2LK43JL3KJ4L
+    version: 1.0
 workers: 1
