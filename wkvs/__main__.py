@@ -20,13 +20,13 @@ import asyncio
 from ghga_service_commons.api import run_server
 
 from .api.main import app  # noqa: F401 pylint: disable=unused-import
-from .config import CONFIG, Config
+from .config import Config
 
 
-def run(config: Config = CONFIG):
+def run(config: Config = Config()):
     """Run the service"""
     # Please adapt to package name
-    asyncio.run(run_server(app="my_microservice.__main__:app", config=config))
+    asyncio.run(run_server(app="wkvs.__main__:app", config=config))
 
 
 if __name__ == "__main__":
