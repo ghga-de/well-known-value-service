@@ -17,16 +17,12 @@
 
 import asyncio
 
-from ghga_service_commons.api import run_server
-
-from .api.main import app  # noqa: F401 pylint: disable=unused-import
-from .config import Config
+from wkvs.main import run_rest
 
 
-def run(config: Config = Config()):
+def run():
     """Run the service"""
-    # Please adapt to package name
-    asyncio.run(run_server(app="wkvs.__main__:app", config=config))
+    asyncio.run(run_rest())
 
 
 if __name__ == "__main__":

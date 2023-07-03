@@ -19,7 +19,7 @@ from fastapi import APIRouter, Depends, status
 from fastapi.exceptions import HTTPException
 from fastapi.responses import JSONResponse
 
-from wkvs.config import Config
+from wkvs.config import Config, get_config
 
 router = APIRouter()
 
@@ -29,7 +29,7 @@ router = APIRouter()
     summary="retrieve a configured value",
     status_code=status.HTTP_200_OK,
 )
-async def retrieve_value(value_name: str, config: Config = Depends(Config)):
+async def retrieve_value(value_name: str, config: Config = Depends(get_config)):
     """Retrieves the given value from configuration
     Args:
         value_name: the name of the value to be retrieved
