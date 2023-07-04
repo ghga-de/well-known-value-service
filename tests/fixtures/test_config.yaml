@@ -1,0 +1,5 @@
+well_known_values:
+  a_string: Some value
+  ghga_crypt4gh_public_key:
+    version: 1.0
+    key: 30F32923F923IJF2RO23OIRJ2LK43JL3KJ4L
