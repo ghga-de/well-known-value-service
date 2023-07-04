@@ -23,7 +23,17 @@ from fastapi import FastAPI
 from ghga_service_commons.api import configure_app, run_server
 
 from wkvs.adapters.inbound.fastapi_.routes import router
-from wkvs.config import Config, get_config
+from wkvs.config import Config
+from wkvs.container import Container
+
+
+def get_configured_container(*, config: Config) -> Container:
+    """Create and configure a DI container."""
+
+    container = Container()
+    container.config.load_config(config)
+
+    return container
 
 
 def get_rest_api(*, config: Config) -> FastAPI:
@@ -39,7 +49,9 @@ def get_rest_api(*, config: Config) -> FastAPI:
 
 async def run_rest():
     """Run the server"""
-    config = get_config()
+    config = Config()
 
+    container = get_configured_container(config=config)
+    container.wire(modules=["wkvs.adapters.inbound.fastapi_.routes"])
     api = get_rest_api(config=config)
     await run_server(app=api, config=config)

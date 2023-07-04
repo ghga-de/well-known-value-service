@@ -14,12 +14,13 @@
 # limitations under the License.
 #
 """Contains endpoint functions for the API"""
-
+from dependency_injector.wiring import Provide, inject
 from fastapi import APIRouter, Depends, status
 from fastapi.exceptions import HTTPException
 from fastapi.responses import JSONResponse
 
-from wkvs.config import Config, get_config
+from wkvs.config import Config
+from wkvs.container import Container
 
 router = APIRouter()
 
@@ -29,7 +30,11 @@ router = APIRouter()
     summary="retrieve a configured value",
     status_code=status.HTTP_200_OK,
 )
-async def retrieve_value(value_name: str, config: Config = Depends(get_config)):
+@inject
+async def retrieve_value(
+    value_name: str,
+    config: Config = Depends(Provide[Container.config]),
+):
     """Retrieves the given value from configuration
     Args:
         value_name: the name of the value to be retrieved
