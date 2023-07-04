@@ -19,8 +19,7 @@
 # flake8: noqa
 # pylint: skip-file
 
-# Please adapt to package structure:
-from wkvs.config import get_config
+from wkvs.config import Config
 from wkvs.main import get_rest_api
 
-app = get_rest_api(config=get_config())
+app = get_rest_api(config=Config())
