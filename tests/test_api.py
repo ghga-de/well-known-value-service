@@ -48,10 +48,19 @@ async def test_happy_retrieval_complex_value(joint_fixture: JointFixture):  # no
 @pytest.mark.asyncio
 async def test_non_configured_value(joint_fixture: JointFixture):  # noqa: F811
     """Test that we get an HTTP exception when requesting a non-configured value"""
-    url = "/values/not_configured"
+    value_name = "not_configured"
+    url = f"/values/{value_name}"
     response = await joint_fixture.rest_client.get(url)
     assert response.status_code == status.HTTP_422_UNPROCESSABLE_ENTITY
     assert (
         json.loads(response.content)["detail"]
-        == "The value not_configured is not configured"
+        == f"The value {value_name} is not configured"
     )
+
+
+@pytest.mark.asyncio
+async def test_retrieve_all_values(joint_fixture: JointFixture):  # noqa: F811
+    """Test that the all-values endpoint works"""
+    response = await joint_fixture.rest_client.get("/values/")
+    assert response.status_code == status.HTTP_200_OK
+    assert json.loads(response.content) == joint_fixture.config.well_known_values
