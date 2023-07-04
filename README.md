@@ -70,7 +70,9 @@ wkvs --help
 ### Parameters
 
 The service requires the following configuration parameters:
-- **`well_known_values`** *(object)*: A dictionary containing the configured 'well-known values'.
+- **`well_known_values`** *(object)*: A dictionary containing the configured 'well-known values'. Can contain additional properties.
+
+  - **Additional Properties**
 
 - **`host`** *(string)*: IP of the host. Default: `127.0.0.1`.
 

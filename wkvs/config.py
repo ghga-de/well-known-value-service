@@ -14,17 +14,17 @@
 # limitations under the License.
 
 """Config Parameter Modeling and Parsing"""
-from typing import Any
 
 from ghga_service_commons.api import ApiConfigBase
 from hexkit.config import config_from_yaml
+from hexkit.custom_types import JsonObject
 from pydantic import BaseSettings, Field
 
 
 class WellKnownsConfig(BaseSettings):
     """Contains the configured values for the service"""
 
-    well_known_values: dict[str, Any] = Field(
+    well_known_values: JsonObject = Field(
         ...,
         description="A dictionary containing the configured 'well-known values'.",
     )
@@ -35,8 +35,3 @@ class Config(ApiConfigBase, WellKnownsConfig):
     """Config parameters and their defaults."""
 
     service_name: str = "wkvs"
-
-
-def get_config() -> Config:
-    """Return the config"""
-    return Config()

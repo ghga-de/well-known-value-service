@@ -9,7 +9,30 @@
       "env_names": [
         "wkvs_well_known_values"
       ],
-      "type": "object"
+      "type": "object",
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "array",
+            "items": {}
+          },
+          {
+            "type": "object"
+          }
+        ]
+      }
     },
     "host": {
       "title": "Host",

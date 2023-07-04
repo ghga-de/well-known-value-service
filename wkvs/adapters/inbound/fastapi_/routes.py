@@ -18,6 +18,7 @@ from dependency_injector.wiring import Provide, inject
 from fastapi import APIRouter, Depends, status
 from fastapi.exceptions import HTTPException
 from fastapi.responses import JSONResponse
+from hexkit.custom_types import JsonObject
 
 from wkvs.config import Config
 from wkvs.container import Container
@@ -34,7 +35,7 @@ router = APIRouter()
 async def retrieve_value(
     value_name: str,
     config: Config = Depends(Provide[Container.config]),
-):
+) -> JSONResponse:
     """Retrieves the given value from configuration
     Args:
         value_name: the name of the value to be retrieved
@@ -50,7 +51,20 @@ async def retrieve_value(
     except KeyError as err:
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-            detail="The requested value is not configured",
+            detail=f"The value {value_name} is not configured",
         ) from err
 
     return response
+
+
+@router.get(
+    "/values/",
+    summary="retrieve all configured values",
+    status_code=status.HTTP_200_OK,
+)
+@inject
+async def retrieve_all_values(
+    config: Config = Depends(Provide[Container.config]),
+) -> JsonObject:
+    """Retrieves all values from configuration"""
+    return config.well_known_values
