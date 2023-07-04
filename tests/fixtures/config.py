@@ -16,9 +16,6 @@
 """Test config"""
 
 from pathlib import Path
-from typing import Dict, List, Optional
-
-from pydantic.env_settings import BaseSettings
 
 from tests.fixtures.utils import BASE_DIR
 from wkvs.config import Config
@@ -27,15 +24,7 @@ TEST_CONFIG_YAML = BASE_DIR / "test_config.yaml"
 
 
 def get_config(
-    sources: Optional[List[BaseSettings]] = None,
     default_config_yaml: Path = TEST_CONFIG_YAML,
 ) -> Config:
-    """Merges parameters from the default TEST_CONFIG_YAML with params inferred
-    from testcontainers."""
-    sources_dict: Dict[str, object] = {}
-
-    if sources is not None:
-        for source in sources:
-            sources_dict.update(**source.dict())
-
-    return Config(config_yaml=default_config_yaml, **sources_dict)  # type: ignore
+    """Load test config"""
+    return Config(config_yaml=default_config_yaml)  # type: ignore
