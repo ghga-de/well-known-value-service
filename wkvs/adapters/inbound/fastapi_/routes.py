@@ -14,10 +14,11 @@
 # limitations under the License.
 #
 """Contains endpoint functions for the API"""
+from typing import Any
+
 from dependency_injector.wiring import Provide, inject
 from fastapi import APIRouter, Depends, status
 from fastapi.exceptions import HTTPException
-from fastapi.responses import JSONResponse
 
 from wkvs.config import WellKnownsConfig
 from wkvs.container import Container
@@ -36,7 +37,7 @@ router = APIRouter()
 async def retrieve_value(
     value_name: str,
     config: WellKnownsConfig = Depends(Provide[Container.config]),
-) -> JSONResponse:
+) -> dict[str, Any]:
     """Retrieves the given value from configuration
     Args:
         value_name: the name of the value to be retrieved
@@ -46,8 +47,8 @@ async def retrieve_value(
     """
 
     try:
-        available = config.dict(include=WELLKNOWNS_FILTER)
-        response = JSONResponse(content={value_name: available[value_name]})
+        available_values = config.dict(include=WELLKNOWNS_FILTER)
+        response = {value_name: available_values[value_name]}
     except KeyError as err:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
@@ -65,7 +66,7 @@ async def retrieve_value(
 @inject
 async def retrieve_all_values(
     config: WellKnownsConfig = Depends(Provide[Container.config]),
-) -> dict[str, str]:
+) -> dict[str, Any]:
     """Retrieves all values from the WellKnownsConfig class"""
 
     return config.dict(include=WELLKNOWNS_FILTER)

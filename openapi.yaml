@@ -44,8 +44,6 @@ paths:
           content:
             application/json:
               schema:
-                additionalProperties:
-                  type: string
                 title: Response Retrieve All Values Values Get
                 type: object
           description: Successful Response
@@ -67,7 +65,9 @@ paths:
         '200':
           content:
             application/json:
-              schema: {}
+              schema:
+                title: Response Retrieve Value Values  Value Name  Get
+                type: object
           description: Successful Response
         '422':
           content:
