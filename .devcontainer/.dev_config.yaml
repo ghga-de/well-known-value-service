@@ -1,6 +1,1 @@
-well_known_values:
-  a_string: Test String
-  ghga_crypt4gh_public_key:
-    version: 1.0
-    key: 30F32923F923IJF2RO23OIRJ2LK43JL3KJ4L
-  an_email_address: "test.email+ext@example.com"
+crypt4gh_public_key: dWoWghAEVPcpHILEb5drJx59nF+of6YKuAOhKRpmegY=

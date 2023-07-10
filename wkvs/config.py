@@ -14,20 +14,15 @@
 # limitations under the License.
 
 """Config Parameter Modeling and Parsing"""
-
 from ghga_service_commons.api import ApiConfigBase
 from hexkit.config import config_from_yaml
-from hexkit.custom_types import JsonObject
 from pydantic import BaseSettings, Field
 
 
 class WellKnownsConfig(BaseSettings):
     """Contains the configured values for the service"""
 
-    well_known_values: JsonObject = Field(
-        ...,
-        description="A dictionary containing the configured 'well-known values'.",
-    )
+    crypt4gh_public_key: str = Field(..., description="The GHGA crypt4gh public key")
 
 
 @config_from_yaml(prefix="wkvs")

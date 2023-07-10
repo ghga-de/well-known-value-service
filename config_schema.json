@@ -3,36 +3,13 @@
   "description": "Modifies the orginal Settings class provided by the user",
   "type": "object",
   "properties": {
-    "well_known_values": {
-      "title": "Well Known Values",
-      "description": "A dictionary containing the configured 'well-known values'.",
+    "crypt4gh_public_key": {
+      "title": "Crypt4Gh Public Key",
+      "description": "The GHGA crypt4gh public key",
       "env_names": [
-        "wkvs_well_known_values"
+        "wkvs_crypt4gh_public_key"
       ],
-      "type": "object",
-      "additionalProperties": {
-        "anyOf": [
-          {
-            "type": "integer"
-          },
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {
-            "type": "boolean"
-          },
-          {
-            "type": "array",
-            "items": {}
-          },
-          {
-            "type": "object"
-          }
-        ]
-      }
+      "type": "string"
     },
     "host": {
       "title": "Host",
@@ -177,7 +154,7 @@
     }
   },
   "required": [
-    "well_known_values"
+    "crypt4gh_public_key"
   ],
   "additionalProperties": false
 }
