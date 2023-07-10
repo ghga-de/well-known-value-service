@@ -47,9 +47,7 @@ wkvs --help
 ### Parameters
 
 The service requires the following configuration parameters:
-- **`well_known_values`** *(object)*: A dictionary containing the configured 'well-known values'. Can contain additional properties.
-
-  - **Additional Properties**
+- **`crypt4gh_public_key`** *(string)*: The GHGA crypt4gh public key.
 
 - **`host`** *(string)*: IP of the host. Default: `127.0.0.1`.
 

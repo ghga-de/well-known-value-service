@@ -35,25 +35,18 @@ info:
   version: 0.1.0
 openapi: 3.0.2
 paths:
-  /values/:
+  /values:
     get:
-      description: Retrieves all values from configuration
-      operationId: retrieve_all_values_values__get
+      description: Retrieves all values from the WellKnownsConfig class
+      operationId: retrieve_all_values_values_get
       responses:
         '200':
           content:
             application/json:
               schema:
                 additionalProperties:
-                  anyOf:
-                  - type: integer
-                  - type: number
-                  - type: string
-                  - type: boolean
-                  - items: {}
-                    type: array
-                  - type: object
-                title: Response Retrieve All Values Values  Get
+                  type: string
+                title: Response Retrieve All Values Values Get
                 type: object
           description: Successful Response
       summary: retrieve all configured values
