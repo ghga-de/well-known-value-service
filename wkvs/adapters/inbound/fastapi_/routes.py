@@ -50,7 +50,7 @@ async def retrieve_value(
         response = JSONResponse(content={value_name: available[value_name]})
     except KeyError as err:
         raise HTTPException(
-            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            status_code=status.HTTP_404_NOT_FOUND,
             detail=f"The value {value_name} is not configured",
         ) from err
 
