@@ -18,10 +18,11 @@ from dependency_injector.wiring import Provide, inject
 from fastapi import APIRouter, Depends, status
 from fastapi.exceptions import HTTPException
 from fastapi.responses import JSONResponse
-from hexkit.custom_types import JsonObject
 
-from wkvs.config import Config
+from wkvs.config import WellKnownsConfig
 from wkvs.container import Container
+
+WELLKNOWNS_FILTER: set[str] = WellKnownsConfig.schema()["properties"].keys()
 
 router = APIRouter()
 
@@ -34,7 +35,7 @@ router = APIRouter()
 @inject
 async def retrieve_value(
     value_name: str,
-    config: Config = Depends(Provide[Container.config]),
+    config: WellKnownsConfig = Depends(Provide[Container.config]),
 ) -> JSONResponse:
     """Retrieves the given value from configuration
     Args:
@@ -45,9 +46,8 @@ async def retrieve_value(
     """
 
     try:
-        response = JSONResponse(
-            content={value_name: config.well_known_values[value_name]}
-        )
+        available = config.dict(include=WELLKNOWNS_FILTER)
+        response = JSONResponse(content={value_name: available[value_name]})
     except KeyError as err:
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
@@ -58,13 +58,14 @@ async def retrieve_value(
 
 
 @router.get(
-    "/values/",
+    "/values",
     summary="retrieve all configured values",
     status_code=status.HTTP_200_OK,
 )
 @inject
 async def retrieve_all_values(
-    config: Config = Depends(Provide[Container.config]),
-) -> JsonObject:
-    """Retrieves all values from configuration"""
-    return config.well_known_values
+    config: WellKnownsConfig = Depends(Provide[Container.config]),
+) -> dict[str, str]:
+    """Retrieves all values from the WellKnownsConfig class"""
+
+    return config.dict(include=WELLKNOWNS_FILTER)
