@@ -32,6 +32,12 @@ router = APIRouter()
     "/values/{value_name}",
     summary="retrieve a configured value",
     status_code=status.HTTP_200_OK,
+    responses={
+        "404": {
+            "description": "Raised when a value is passed in for 'value_name' that is "
+            + "not configured or otherwise available."
+        }
+    },
 )
 @inject
 async def retrieve_value(

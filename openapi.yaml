@@ -69,6 +69,9 @@ paths:
                 title: Response Retrieve Value Values  Value Name  Get
                 type: object
           description: Successful Response
+        '404':
+          description: Raised when a value is passed in for 'value_name' that is not
+            configured or otherwise available.
         '422':
           content:
             application/json:
