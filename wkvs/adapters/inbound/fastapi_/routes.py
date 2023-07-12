@@ -20,10 +20,10 @@ from dependency_injector.wiring import Provide, inject
 from fastapi import APIRouter, Depends, status
 from fastapi.exceptions import HTTPException
 
-from wkvs.config import WellKnownsConfig
+from wkvs.config import WellKnownConfig
 from wkvs.container import Container
 
-WELLKNOWNS_FILTER: set[str] = WellKnownsConfig.schema()["properties"].keys()
+WELLKNOWNS_FILTER: set[str] = WellKnownConfig.schema()["properties"].keys()
 
 router = APIRouter()
 
@@ -36,7 +36,7 @@ router = APIRouter()
 @inject
 async def retrieve_value(
     value_name: str,
-    config: WellKnownsConfig = Depends(Provide[Container.config]),
+    config: WellKnownConfig = Depends(Provide[Container.config]),
 ) -> dict[str, Any]:
     """Retrieves the given value from configuration
     Args:
@@ -65,7 +65,7 @@ async def retrieve_value(
 )
 @inject
 async def retrieve_all_values(
-    config: WellKnownsConfig = Depends(Provide[Container.config]),
+    config: WellKnownConfig = Depends(Provide[Container.config]),
 ) -> dict[str, Any]:
     """Retrieves all values from the WellKnownsConfig class"""
 

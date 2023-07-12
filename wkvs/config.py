@@ -19,14 +19,14 @@ from hexkit.config import config_from_yaml
 from pydantic import BaseSettings, Field
 
 
-class WellKnownsConfig(BaseSettings):
+class WellKnownConfig(BaseSettings):
     """Contains the configured values for the service"""
 
     crypt4gh_public_key: str = Field(..., description="The GHGA crypt4gh public key")
 
 
 @config_from_yaml(prefix="wkvs")
-class Config(ApiConfigBase, WellKnownsConfig):
+class Config(ApiConfigBase, WellKnownConfig):
     """Config parameters and their defaults."""
 
     service_name: str = "wkvs"
