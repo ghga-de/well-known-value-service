@@ -49,9 +49,9 @@ wkvs --help
 The service requires the following configuration parameters:
 - **`crypt4gh_public_key`** *(string)*: The GHGA crypt4gh public key.
 
-- **`download_api_url`** *(string)*: URL to the root of the DRS-compatible API used for download.
+- **`dcs_api_url`** *(string)*: URL to the root of the DRS-compatible DCS API.
 
-- **`upload_api_url`** *(string)*: URL to the root of the upload controller API.
+- **`ucs_api_url`** *(string)*: URL to the root of the upload controller API.
 
 - **`wps_api_url`** *(string)*: URL to the root of the WPS API.
 

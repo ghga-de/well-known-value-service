@@ -22,11 +22,11 @@ from pydantic import BaseSettings, Field
 class WellKnownConfig(BaseSettings):
     """Contains the configured values for the service"""
 
-    crypt4gh_public_key: str = Field(..., description="The GHGA crypt4gh public key")
-    download_api_url: str = Field(
-        ..., description="URL to the root of the DRS-compatible API used for download."
+    crypt4gh_public_key: str = Field(..., description="The GHGA crypt4gh public key.")
+    dcs_api_url: str = Field(
+        ..., description="URL to the root of the DRS-compatible DCS API."
     )
-    upload_api_url: str = Field(
+    ucs_api_url: str = Field(
         ...,
         description="URL to the root of the upload controller API.",
     )

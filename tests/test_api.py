@@ -57,6 +57,6 @@ async def test_retrieve_all_values(joint_fixture: JointFixture):  # noqa: F811
     assert response.json() == {
         "crypt4gh_public_key": "dWoWghAEVPcpHILEb5drJx59nF+of6YKuAOhKRpmegY=",
         "wps_api_url": "http://127.0.0.1",
-        "download_api_url": "http://127.0.0.1/download",
-        "upload_api_url": "http://127.0.0.1/upload",
+        "dcs_api_url": "http://127.0.0.1/download",
+        "ucs_api_url": "http://127.0.0.1/upload",
     }
