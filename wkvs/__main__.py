@@ -13,7 +13,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""
-This sub-package contains the main business functionality of this service.
-It should not contain any service API-related code.
-"""
+"""Entrypoint of the package"""
+
+import asyncio
+
+from wkvs.main import run_rest
+
+
+def run():
+    """Run the service"""
+    asyncio.run(run_rest())
+
+
+if __name__ == "__main__":
+    run()
