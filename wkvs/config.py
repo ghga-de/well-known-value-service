@@ -23,6 +23,14 @@ class WellKnownConfig(BaseSettings):
     """Contains the configured values for the service"""
 
     crypt4gh_public_key: str = Field(..., description="The GHGA crypt4gh public key")
+    download_api_url: str = Field(
+        ..., description="URL to the root of the DRS-compatible API used for download."
+    )
+    upload_api_url: str = Field(
+        ...,
+        description="URL to the root of the upload controller API.",
+    )
+    wps_api_url: str = Field(..., description="URL to the root of the WPS API.")
 
 
 @config_from_yaml(prefix="wkvs")

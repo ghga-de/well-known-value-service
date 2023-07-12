@@ -49,6 +49,12 @@ wkvs --help
 The service requires the following configuration parameters:
 - **`crypt4gh_public_key`** *(string)*: The GHGA crypt4gh public key.
 
+- **`download_api_url`** *(string)*: URL to the root of the DRS-compatible API used for download.
+
+- **`upload_api_url`** *(string)*: URL to the root of the upload controller API.
+
+- **`wps_api_url`** *(string)*: URL to the root of the WPS API.
+
 - **`host`** *(string)*: IP of the host. Default: `127.0.0.1`.
 
 - **`port`** *(integer)*: Port to expose the server on the specified host. Default: `8080`.
