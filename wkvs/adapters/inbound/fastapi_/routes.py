@@ -43,7 +43,7 @@ async def retrieve_value(
         value_name: the name of the value to be retrieved
 
     Raises:
-        HTTPException 422 when the specified value is not configured
+        HTTPException 404 when the specified value is not configured
     """
 
     try:

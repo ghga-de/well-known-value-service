@@ -51,7 +51,7 @@ paths:
   /values/{value_name}:
     get:
       description: "Retrieves the given value from configuration\nArgs:\n    value_name:\
-        \ the name of the value to be retrieved\n\nRaises:\n    HTTPException 422\
+        \ the name of the value to be retrieved\n\nRaises:\n    HTTPException 404\
         \ when the specified value is not configured"
       operationId: retrieve_value_values__value_name__get
       parameters:
