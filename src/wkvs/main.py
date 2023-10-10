@@ -45,7 +45,7 @@ def get_rest_api(*, config: Config) -> FastAPI:
 
 async def run_rest():
     """Run the server"""
-    config = Config()
+    config = Config()  # type: ignore[call-arg]
 
     container = get_configured_container(config=config)
     container.wire(modules=["wkvs.adapters.inbound.fastapi_.routes"])

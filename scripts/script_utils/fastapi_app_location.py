@@ -22,4 +22,4 @@
 from wkvs.config import Config
 from wkvs.main import get_rest_api
 
-app = get_rest_api(config=Config())
+app = get_rest_api(config=Config())  # type: ignore[call-arg]
