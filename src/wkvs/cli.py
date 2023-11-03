@@ -12,27 +12,19 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
-"""Used to define the location of the main FastAPI app object."""
+"""Entrypoint of the package"""
 
-from typing import Any
+import asyncio
 
-from fastapi import FastAPI
+import typer
 
-from wkvs.adapters.inbound.fastapi_.configure import get_openapi_schema
-from wkvs.adapters.inbound.fastapi_.routes import router
+from wkvs.main import run_rest_app
 
-app = FastAPI()
-app.include_router(router)
+cli = typer.Typer()
 
 
-def custom_openapi() -> dict[str, Any]:
-    if app.openapi_schema:
-        return app.openapi_schema
-    openapi_schema = get_openapi_schema(app)
-    app.openapi_schema = openapi_schema
-    return app.openapi_schema
-
-
-app.openapi = custom_openapi  # type: ignore [method-assign]
+@cli.command(name="run-rest")
+def sync_run_api():
+    """Run the HTTP REST API."""
+    asyncio.run(run_rest_app())

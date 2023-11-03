@@ -15,15 +15,7 @@
 
 """Entrypoint of the package"""
 
-import asyncio
-
-from wkvs.main import run_rest
-
-
-def run():
-    """Run the service"""
-    asyncio.run(run_rest())
-
+from wkvs.cli import cli
 
 if __name__ == "__main__":
-    run()
+    cli()
