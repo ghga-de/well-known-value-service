@@ -1,0 +1,15 @@
+[project]
+name = "wkvs"
+version = "1.1.0"
+description = "Well-Known-Value-Service - Provides access to common values via API"
+dependencies = [
+    "ghga-service-commons[api]>=3.0.0",
+    "hexkit[api]>=2.1.0",
+    "typer>=0.9.0",
+]
+
+[project.urls]
+Repository = "https://github.com/ghga-de/well-known-value-service"
+
+[project.scripts]
+wkvs = "wkvs.__main__:cli"

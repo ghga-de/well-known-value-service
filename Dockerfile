@@ -32,8 +32,12 @@ RUN apt update
 RUN apt upgrade -y
 # copy and install wheel
 WORKDIR /service
+COPY --from=builder /service/requirements.txt /service
+RUN pip install --no-deps -r requirements.txt
+RUN rm requirements.txt
 COPY --from=builder /service/dist/ /service
-RUN pip install *.whl
+RUN pip install --no-deps *.whl
+RUN rm *.whl
 # create new user and execute as that user
 RUN useradd --create-home appuser
 WORKDIR /home/appuser
