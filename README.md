@@ -48,6 +48,41 @@ wkvs --help
 ### Parameters
 
 The service requires the following configuration parameters:
+- **`log_level`** *(string)*: The minimum log level to capture. Must be one of: `["CRITICAL", "ERROR", "WARNING", "INFO", "DEBUG", "TRACE"]`. Default: `"INFO"`.
+
+- **`service_name`** *(string)*: Default: `"wkvs"`.
+
+- **`service_instance_id`** *(string)*: A string that uniquely identifies this instance across all instances of this service. This is included in log messages.
+
+
+  Examples:
+
+  ```json
+  "germany-bw-instance-001"
+  ```
+
+
+- **`log_format`**: If set, will replace JSON formatting with the specified string format. If not set, has no effect. In addition to the standard attributes, the following can also be specified: timestamp, service, instance, level, correlation_id, and details. Default: `null`.
+
+  - **Any of**
+
+    - *string*
+
+    - *null*
+
+
+  Examples:
+
+  ```json
+  "%(timestamp)s - %(service)s - %(level)s - %(message)s"
+  ```
+
+
+  ```json
+  "%(asctime)s - Severity: %(levelno)s - %(msg)s"
+  ```
+
+
 - **`crypt4gh_public_key`** *(string)*: The GHGA crypt4gh public key.
 
 - **`dcs_api_url`** *(string)*: URL to the root of the DRS-compatible DCS API.
@@ -162,8 +197,6 @@ The service requires the following configuration parameters:
   false
   ```
 
-
-- **`service_name`** *(string)*: Default: `"wkvs"`.
 
 
 ### Usage:
