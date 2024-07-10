@@ -14,6 +14,7 @@
 # limitations under the License.
 #
 """Contains endpoint functions for the API"""
+
 from typing import Any
 
 from fastapi import APIRouter, status

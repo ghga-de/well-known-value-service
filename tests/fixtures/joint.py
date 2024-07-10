@@ -15,6 +15,7 @@
 #
 
 """Joint fixture"""
+
 from collections.abc import AsyncGenerator
 from dataclasses import dataclass
 
