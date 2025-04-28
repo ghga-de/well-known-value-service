@@ -34,11 +34,11 @@ class WellKnownConfig(BaseSettings):
         description="URL to the root of the upload controller API.",
     )
     wps_api_url: str = Field(..., description="URL to the root of the WPS API.")
-    storage_aliases: dict = Field(
+    storage_aliases: dict[str, str] = Field(
         ...,
         description="Mapping of storage alias to endpoint URL for all available S3 object storages",
     )
-    alias_decodes: dict = Field(
+    alias_decodes: dict[str, str] = Field(
         ...,
         description="Mapping of storage alias to its human-readable format",
         examples=[{"HD01": "Heidelberg", "TUE01": "Tübingen"}],

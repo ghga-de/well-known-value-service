@@ -95,7 +95,11 @@ The service requires the following configuration parameters:
 
 - <a id="properties/storage_aliases"></a>**`storage_aliases`** *(object, required)*: Mapping of storage alias to endpoint URL for all available S3 object storages. Can contain additional properties.
 
+  - <a id="properties/storage_aliases/additionalProperties"></a>**Additional properties** *(string)*
+
 - <a id="properties/alias_decodes"></a>**`alias_decodes`** *(object, required)*: Mapping of storage alias to its human-readable format. Can contain additional properties.
+
+  - <a id="properties/alias_decodes/additionalProperties"></a>**Additional properties** *(string)*
 
 
   Examples:

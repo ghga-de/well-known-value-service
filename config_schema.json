@@ -73,13 +73,17 @@
       "type": "string"
     },
     "storage_aliases": {
-      "additionalProperties": true,
+      "additionalProperties": {
+        "type": "string"
+      },
       "description": "Mapping of storage alias to endpoint URL for all available S3 object storages",
       "title": "Storage Aliases",
       "type": "object"
     },
     "alias_decodes": {
-      "additionalProperties": true,
+      "additionalProperties": {
+        "type": "string"
+      },
       "description": "Mapping of storage alias to its human-readable format",
       "examples": [
         {
