@@ -78,6 +78,18 @@
       "title": "Storage Aliases",
       "type": "object"
     },
+    "alias_decodes": {
+      "additionalProperties": true,
+      "description": "Mapping of storage alias to its human-readable format",
+      "examples": [
+        {
+          "HD01": "Heidelberg",
+          "TUE01": "T\u00fcbingen"
+        }
+      ],
+      "title": "Alias Decodes",
+      "type": "object"
+    },
     "host": {
       "default": "127.0.0.1",
       "description": "IP of the host.",
@@ -218,7 +230,8 @@
     "dcs_api_url",
     "ucs_api_url",
     "wps_api_url",
-    "storage_aliases"
+    "storage_aliases",
+    "alias_decodes"
   ],
   "title": "ModSettings",
   "type": "object"

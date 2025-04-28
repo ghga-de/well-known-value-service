@@ -1,3 +1,6 @@
+alias_decodes:
+  HD01: Heidelberg
+  TUE01: "T\xFCbingen"
 api_root_path: ''
 auto_reload: false
 cors_allow_credentials: null

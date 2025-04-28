@@ -38,6 +38,11 @@ class WellKnownConfig(BaseSettings):
         ...,
         description="Mapping of storage alias to endpoint URL for all available S3 object storages",
     )
+    alias_decodes: dict = Field(
+        ...,
+        description="Mapping of storage alias to its human-readable format",
+        examples=[{"HD01": "Heidelberg", "TUE01": "Tübingen"}],
+    )
 
 
 SERVICE_NAME: str = "wkvs"
