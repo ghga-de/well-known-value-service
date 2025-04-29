@@ -74,6 +74,9 @@
     },
     "storage_aliases": {
       "additionalProperties": {
+        "format": "uri",
+        "maxLength": 2083,
+        "minLength": 1,
         "type": "string"
       },
       "description": "Mapping of storage alias to endpoint URL for all available S3 object storages",

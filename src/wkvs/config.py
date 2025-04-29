@@ -18,7 +18,7 @@
 from ghga_service_commons.api import ApiConfigBase
 from hexkit.config import config_from_yaml
 from hexkit.log import LoggingConfig
-from pydantic import Field
+from pydantic import Field, HttpUrl
 from pydantic_settings import BaseSettings
 
 
@@ -34,7 +34,7 @@ class WellKnownConfig(BaseSettings):
         description="URL to the root of the upload controller API.",
     )
     wps_api_url: str = Field(..., description="URL to the root of the WPS API.")
-    storage_aliases: dict[str, str] = Field(
+    storage_aliases: dict[str, HttpUrl] = Field(
         ...,
         description="Mapping of storage alias to endpoint URL for all available S3 object storages",
     )
