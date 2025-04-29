@@ -72,5 +72,5 @@ async def test_retrieve_all_values(joint_fixture: JointFixture):  # noqa: F811
             "storage1": "http://127.0.0.1/object_storage_1",
             "storage2": "http://127.0.0.1/object_storage_2",
         },
-        "alias_decodes": {"HD01": "Heidelberg", "TUE01": "Tübingen"},
+        "storage_alias_decodes": {"storage1": "Heidelberg", "storage2": "Tübingen"},
     }

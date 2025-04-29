@@ -80,7 +80,7 @@
       "title": "Storage Aliases",
       "type": "object"
     },
-    "alias_decodes": {
+    "storage_alias_decodes": {
       "additionalProperties": {
         "type": "string"
       },
@@ -91,7 +91,7 @@
           "TUE01": "T\u00fcbingen"
         }
       ],
-      "title": "Alias Decodes",
+      "title": "Storage Alias Decodes",
       "type": "object"
     },
     "host": {
@@ -235,7 +235,7 @@
     "ucs_api_url",
     "wps_api_url",
     "storage_aliases",
-    "alias_decodes"
+    "storage_alias_decodes"
   ],
   "title": "ModSettings",
   "type": "object"
