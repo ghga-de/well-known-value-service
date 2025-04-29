@@ -16,12 +16,12 @@ openapi_url: /openapi.json
 port: 8080
 service_instance_id: '001'
 service_name: wkvs
-storage_alias_decodes:
-  storage1: Heidelberg
-  storage2: "T\xFCbingen"
 storage_aliases:
   storage1: http://127.0.0.1/object_storage_1
   storage2: http://127.0.0.1/object_storage_2
+storage_labels:
+  storage1: Heidelberg
+  storage2: "T\xFCbingen"
 ucs_api_url: http://127.0.0.1/upload
 workers: 1
 wps_api_url: http://127.0.0.1
