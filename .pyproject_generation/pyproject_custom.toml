@@ -1,11 +1,11 @@
 [project]
 name = "wkvs"
-version = "1.2.2"
+version = "1.2.3"
 description = "Well-Known-Value-Service - Provides access to common values via API"
 dependencies = [
-    "ghga-service-commons[api]>=4.1",
-    "hexkit>=5.3",
-    "typer>=0.16",
+    "ghga-service-commons[api]>=5.1",
+    "hexkit>=7.1",
+    "typer>=0.19",
 ]
 
 [project.urls]
