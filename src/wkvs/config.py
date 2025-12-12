@@ -42,7 +42,7 @@ class WellKnownConfig(BaseSettings):
         description="Mapping of storage alias to its human-readable format",
         examples=[{"HD01": "Heidelberg", "TUE01": "Tübingen"}],
     )
-    crypt4gh_public_keys: dict[str, bytes] = Field(
+    crypt4gh_public_keys: dict[str, str] = Field(
         ..., description="Mapping of storage alias to Crypt4GH public key"
     )
 

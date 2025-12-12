@@ -94,7 +94,6 @@
     },
     "crypt4gh_public_keys": {
       "additionalProperties": {
-        "format": "binary",
         "type": "string"
       },
       "description": "Mapping of storage alias to Crypt4GH public key",

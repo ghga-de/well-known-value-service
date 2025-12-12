@@ -89,7 +89,7 @@ The service requires the following configuration parameters:
   ```
 
 - <a id="properties/crypt4gh_public_keys"></a>**`crypt4gh_public_keys`** *(object, required)*: Mapping of storage alias to Crypt4GH public key. Can contain additional properties.
-  - <a id="properties/crypt4gh_public_keys/additionalProperties"></a>**Additional properties** *(string, format: binary)*
+  - <a id="properties/crypt4gh_public_keys/additionalProperties"></a>**Additional properties** *(string)*
 - <a id="properties/host"></a>**`host`** *(string)*: IP of the host. Default: `"127.0.0.1"`.
 - <a id="properties/port"></a>**`port`** *(integer)*: Port to expose the server on the specified host. Default: `8080`.
 - <a id="properties/auto_reload"></a>**`auto_reload`** *(boolean)*: A development feature. Set to `True` to automatically reload the server upon code changes. Default: `false`.
