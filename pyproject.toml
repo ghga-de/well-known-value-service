@@ -25,7 +25,7 @@ version = "3.0.2"
 description = "Well-Known-Value-Service - Provides access to common values via API"
 dependencies = [
     "ghga-service-commons[api]>=8",
-    "hexkit>=7.2",
+    "hexkit>=9",
     "typer>=0.20",
 ]
 
